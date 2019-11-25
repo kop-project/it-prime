@@ -1,6 +1,7 @@
 package it.prom.professionalmanager.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,8 +11,9 @@ import javax.persistence.*;
  * Сущность сотрудника
  */
 @Entity
-@Table(name = "COWORKERS")
+@Table(name = "COWORKERS", schema = "PUBLIC")
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Coworker {

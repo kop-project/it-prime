@@ -1,7 +1,11 @@
 package it.prom.professionalmanager.controllers.rest;
 
+import it.prom.professionalmanager.dto.CoworkerDTO;
 import it.prom.professionalmanager.model.Coworker;
 import it.prom.professionalmanager.model.Profession;
+import it.prom.professionalmanager.service.Converter;
+import it.prom.professionalmanager.service.CoworkersService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,9 +18,16 @@ import java.util.List;
 @RequestMapping(value = "/api/v1/coworkers")
 public class CoworkerRestApi {
 
+    private final CoworkersService coworkersService;
+
+    @Autowired
+    public CoworkerRestApi(CoworkersService coworkersService) {
+        this.coworkersService = coworkersService;
+    }
+
     @PostMapping
-    private ResponseEntity<Coworker> addCoworker(){
-        return null;
+    private ResponseEntity<Coworker> addCoworker(@RequestBody CoworkerDTO coworkerDTO){
+        return ResponseEntity.ok(coworkersService.addCoworker(Converter.convertCoworkerDtoToEntity(coworkerDTO)));
     }
 
     @PutMapping
@@ -25,8 +36,8 @@ public class CoworkerRestApi {
     }
 
     @GetMapping
-    private ResponseEntity<List<Profession>> getCoworkers(){
-        return null;
+    private ResponseEntity<List<Coworker>> getCoworkers(){
+        return ResponseEntity.ok(coworkersService.getCoworkers());
     }
 
     @DeleteMapping
