@@ -8,8 +8,9 @@ const HTTP_OK = 200;
 /*
 *Элементы на странице
 */
-
 let mainCoworkersTable = document.getElementById('coworkersTable');
+
+var allItem = [];
 
 let xhr = new XMLHttpRequest();
 xhr.open('GET', '/api/v1/coworkers');
@@ -24,7 +25,7 @@ xhr.onload = () => {
 
 function drawRow(response) {
     let items = JSON.parse(response);
-
+    allItem = JSON.parse(response);
     items.forEach((item, index) => {
         let tr = document.createElement('tr');
 
@@ -36,7 +37,7 @@ function drawRow(response) {
         let professional = document.createElement('td');
         let department = document.createElement('td');
         let editPanel = document.createElement('td');
-        editPanel.innerHTML = '<a href="#"><i class="fas fa-edit"></i></a>' + '|' + '<a href="#"><i class="fas fa-user-times"></i></a>';
+        editPanel.innerHTML = '<a href="#" onclick="goToUpdateModel(this.id)" id="element-' + item.id + '"data-toggle="modal" data-target="#exampleModal"><i class="fas fa-edit"></i></a>' + '|' + '<a href="#"><i class="fas fa-user-times"></i></a>';
 
         itemId.innerText = index + 1;
         name.innerText = item.name;
@@ -54,3 +55,21 @@ function drawRow(response) {
     });
 }
 
+function goToUpdateModel(id) {
+    let elementId = +id.split('-')[1];
+
+    let item = allItem.find(value => {
+        if (value.id === elementId) {
+            return value;
+        }
+    });
+
+    let name = document.getElementById('name');
+    let lastname = document.getElementById('lastname');
+    let surname = document.getElementById('surname');
+
+    name.value = item.name;
+    lastname.value = item.lastname;
+    surname.value = item.surname;
+    //console.log(name + lastname + surname);
+}
