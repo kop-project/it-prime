@@ -27,20 +27,13 @@
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
     <!-- Nuestro css-->
-    <link rel="stylesheet" type="text/css" href="static/css/user-form.css"
+    <link rel="stylesheet" type="text/css" href="script/css/user-form.css"
           th:href="@{/css/user-form.css}">
     <!-- DATA TABLE -->
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            //Asegurate que el id que le diste a la tabla sea igual al texto despues del simbolo #
-            $('#userList').DataTable();
-        });
-    </script>
+
 </head>
 <body>
 <div class="container">
@@ -70,247 +63,17 @@
                             <table id="userList" class="table table-bordered table-hover table-striped">
                                 <thead class="thead-light">
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Username</th>
-                                    <th scope="col">E-mail</th>
+                                    <th scope="col">№</th>
+                                    <th scope="col">Имя</th>
+                                    <th scope="col">Фамилия</th>
+                                    <th scope="col">Отчество</th>
+                                    <th scope="col">Отдел</th>
+                                    <th scope="col">Специальность</th>
+                                    <th scope="col">Действия</th>
                                     <th></th>
                                 </tr>
                                 </thead>
                                 <tbody id="coworkersTable">
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Cristian</td>
-                                    <td>Ruiz</td>
-                                    <td>c.r.username</td>
-                                    <td>c.r.username@blog.com</td>
-                                    <td>
-                                        <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                                            class="fas fa-user-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Cristian</td>
-                                    <td>Ruiz</td>
-                                    <td>c.r.username</td>
-                                    <td>c.r.username@blog.com</td>
-                                    <td>
-                                        <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                                            class="fas fa-user-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Cristian</td>
-                                    <td>Ruiz</td>
-                                    <td>c.r.username</td>
-                                    <td>c.r.username@blog.com</td>
-                                    <td>
-                                        <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                                            class="fas fa-user-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>XER</td>
-                                    <td>Ruiz</td>
-                                    <td>c.r.username</td>
-                                    <td>c.r.username@blog.com</td>
-                                    <td>
-                                        <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                                            class="fas fa-user-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Cristian</td>
-                                    <td>Ruiz</td>
-                                    <td>c.r.username</td>
-                                    <td>c.r.username@blog.com</td>
-                                    <td>
-                                        <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                                            class="fas fa-user-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Cristian</td>
-                                    <td>Ruiz</td>
-                                    <td>c.r.username</td>
-                                    <td>c.r.username@blog.com</td>
-                                    <td>
-                                        <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                                            class="fas fa-user-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Cristian</td>
-                                    <td>Ruiz</td>
-                                    <td>c.r.username</td>
-                                    <td>c.r.username@blog.com</td>
-                                    <td>
-                                        <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                                            class="fas fa-user-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Cristian</td>
-                                    <td>Ruiz</td>
-                                    <td>c.r.username</td>
-                                    <td>c.r.username@blog.com</td>
-                                    <td>
-                                        <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                                            class="fas fa-user-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Cristian</td>
-                                    <td>Ruiz</td>
-                                    <td>c.r.username</td>
-                                    <td>c.r.username@blog.com</td>
-                                    <td>
-                                        <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                                            class="fas fa-user-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Cristian</td>
-                                    <td>Ruiz</td>
-                                    <td>c.r.username</td>
-                                    <td>c.r.username@blog.com</td>
-                                    <td>
-                                        <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                                            class="fas fa-user-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Cristian</td>
-                                    <td>Ruiz</td>
-                                    <td>c.r.username</td>
-                                    <td>c.r.username@blog.com</td>
-                                    <td>
-                                        <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                                            class="fas fa-user-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Cristian</td>
-                                    <td>Ruiz</td>
-                                    <td>c.r.username</td>
-                                    <td>c.r.username@blog.com</td>
-                                    <td>
-                                        <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                                            class="fas fa-user-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Cristian</td>
-                                    <td>Ruiz</td>
-                                    <td>c.r.username</td>
-                                    <td>c.r.username@blog.com</td>
-                                    <td>
-                                        <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                                            class="fas fa-user-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Cristian</td>
-                                    <td>Ruiz</td>
-                                    <td>c.r.username</td>
-                                    <td>c.r.username@blog.com</td>
-                                    <td>
-                                        <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                                            class="fas fa-user-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Cristian</td>
-                                    <td>Ruiz</td>
-                                    <td>c.r.username</td>
-                                    <td>c.r.username@blog.com</td>
-                                    <td>
-                                        <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                                            class="fas fa-user-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Cristian</td>
-                                    <td>Ruiz</td>
-                                    <td>c.r.username</td>
-                                    <td>c.r.username@blog.com</td>
-                                    <td>
-                                        <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                                            class="fas fa-user-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Cristian</td>
-                                    <td>Ruiz</td>
-                                    <td>c.r.username</td>
-                                    <td>c.r.username@blog.com</td>
-                                    <td>
-                                        <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                                            class="fas fa-user-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Cristian</td>
-                                    <td>Ruiz</td>
-                                    <td>c.r.username</td>
-                                    <td>c.r.username@blog.com</td>
-                                    <td>
-                                        <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                                            class="fas fa-user-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Cristian</td>
-                                    <td>Ruiz</td>
-                                    <td>c.r.username</td>
-                                    <td>c.r.username@blog.com</td>
-                                    <td>
-                                        <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                                            class="fas fa-user-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Cristian</td>
-                                    <td>Ruiz</td>
-                                    <td>c.r.username</td>
-                                    <td>c.r.username@blog.com</td>
-                                    <td>
-                                        <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                                            class="fas fa-user-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Cristian</td>
-                                    <td>Ruiz</td>
-                                    <td>c.r.username</td>
-                                    <td>c.r.username@blog.com</td>
-                                    <td>
-                                        <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                                            class="fas fa-user-times"></i></a>
-                                    </td>
-                                </tr>
-
                                 </tbody>
                             </table>
                         </div>
@@ -432,5 +195,15 @@
     </div>
 </div>
 </body>
-<script src="/static/static/index.js"></script>
+
+<script src="/static/script/index.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Asegurate que el id que le diste a la tabla sea igual al texto despues del simbolo #
+        $('#userList').DataTable();
+    });
+</script>
 </html>

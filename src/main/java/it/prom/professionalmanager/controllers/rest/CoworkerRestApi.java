@@ -2,7 +2,6 @@ package it.prom.professionalmanager.controllers.rest;
 
 import it.prom.professionalmanager.dto.CoworkerDTO;
 import it.prom.professionalmanager.model.Coworker;
-import it.prom.professionalmanager.model.Profession;
 import it.prom.professionalmanager.service.Converter;
 import it.prom.professionalmanager.service.CoworkersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,22 +25,22 @@ public class CoworkerRestApi {
     }
 
     @PostMapping
-    private ResponseEntity<Coworker> addCoworker(@RequestBody CoworkerDTO coworkerDTO){
+    private ResponseEntity<Coworker> addCoworker(@RequestBody CoworkerDTO coworkerDTO) {
         return ResponseEntity.ok(coworkersService.addCoworker(Converter.convertCoworkerDtoToEntity(coworkerDTO)));
     }
 
     @PutMapping
-    private ResponseEntity<Coworker> updateCoworker (){
+    private ResponseEntity<Coworker> updateCoworker() {
         return null;
     }
 
     @GetMapping
-    private ResponseEntity<List<Coworker>> getCoworkers(){
+    private ResponseEntity<List<Coworker>> getCoworkers() {
         return ResponseEntity.ok(coworkersService.getCoworkers());
     }
 
     @DeleteMapping
-    private ResponseEntity deleteCoworker(){
+    private ResponseEntity deleteCoworker() {
         return null;
     }
 }
