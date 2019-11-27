@@ -205,8 +205,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="exampleModalLabel">Окно редактирования</h5>
+                <button type="button" id="closedata" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -214,21 +214,41 @@
                 <form>
                     <div class="form-group">
                         <label for="name" class="col-form-label">Имя:</label>
-                        <input type="text" class="form-control" id="name">
+                        <input type="text" name="name" class="form-control" id="name">
                     </div>
                     <div class="form-group">
                         <label for="lastname" class="col-form-label">Фамилия:</label>
-                        <input type="text" class="form-control" id="lastname">
+                        <input type="text" name="lastname" class="form-control" id="lastname">
                     </div>
                     <div class="form-group">
-                        <label for="surname" class="col-form-label">Отчество:</label>
-                        <input type="text" class="form-control" id="surname">
+                        <label for="surname"  class="col-form-label">Отчество:</label>
+                        <input type="text" class="form-control" name="surname" id="surname">
                     </div>
+                    <nav>
+                        <ul class="topmenu">
+                            <li><a href="">Отделы</a>
+                                <ul class="submenu">
+                                    <li><a class="listElement" href="">Category</a></li>
+                                    <li><a class="listElement" href="">Author</a></li>
+                                    <li><a class="listElement" href="">Archive</a></li>
+                                    <li><a class="listElement" href="">Tags</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">Профессии</a>
+                                <ul class="submenu">
+                                    <li><a class="listElement" href="">Category</a></li>
+                                    <li><a class="listElement" href="">Author</a></li>
+                                    <li><a class="listElement" href="">Archive</a></li>
+                                    <li><a class="listElement" href="">Tags</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
                 </form>
             </div>
+
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Send message</button>
+                <button type="button" onclick="updateItem()" class="btn btn-primary">Обновить</button>
             </div>
         </div>
     </div>

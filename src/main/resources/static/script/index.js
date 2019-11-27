@@ -73,3 +73,31 @@ function goToUpdateModel(id) {
     surname.value = item.surname;
     //console.log(name + lastname + surname);
 }
+
+function updateItem() {
+    xhr.open('PUT', '/api/v1/coworkers');
+    let updatedUser = {};
+    //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;application/json;charset=utf-8');
+    xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+
+    updatedUser.name = document.getElementById('name');
+    updatedUser.lastname = document.getElementById('lastname');
+    updatedUser.surname = document.getElementById('surname');
+    updatedUser.note = document.getElementById('note');
+
+    xhr.send(updatedUser);
+
+    xhr.onload = () => {
+        if (xhr.status === HTTP_OK) {
+
+
+            console.log(xhr.responseText);
+            //drawRow(xhr.responseText)
+            alert(123);
+            document.getElementById('closedata').click();
+        }
+    };
+
+
+
+}

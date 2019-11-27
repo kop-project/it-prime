@@ -5,6 +5,7 @@ import it.prom.professionalmanager.model.Coworker;
 import it.prom.professionalmanager.service.Converter;
 import it.prom.professionalmanager.service.CoworkersService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,9 +30,9 @@ public class CoworkerRestApi {
         return ResponseEntity.ok(coworkersService.addCoworker(Converter.convertCoworkerDtoToEntity(coworkerDTO)));
     }
 
-    @PutMapping
-    private ResponseEntity<Coworker> updateCoworker() {
-        return null;
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    private ResponseEntity<Coworker> updateCoworker(@RequestBody CoworkerDTO coworkerDTO) {
+        return ResponseEntity.ok(coworkersService.updateCoworker(Converter.convertCoworkerDtoToEntity(coworkerDTO)));
     }
 
     @GetMapping

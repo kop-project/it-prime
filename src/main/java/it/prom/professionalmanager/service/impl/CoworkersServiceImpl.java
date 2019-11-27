@@ -35,8 +35,8 @@ public class CoworkersServiceImpl implements CoworkersService {
     }
 
     @Override
-    public Coworker updateCoworker() {
-        return null;
+    public Coworker updateCoworker(Coworker coworker) {
+        return coworkerRepo.save(coworker);
     }
 
     @Override

@@ -19,7 +19,7 @@ public interface CoworkersService {
      * Обновление данных о сотруднике
      * @return обновленные данные о сотруднике
      */
-    public Coworker updateCoworker();
+    public Coworker updateCoworker(Coworker coworker);
 
     /**
      * Удаление данных о сотруднике
