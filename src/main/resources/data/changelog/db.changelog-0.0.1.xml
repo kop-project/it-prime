@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+
+
+
+    <changeSet id="1" author="test_user">
+
+        <validCheckSum>8:abbc49af81b2b01104fef486c5dd917c</validCheckSum>
+
+
+        <preConditions onFail="WARN">
+            <not>
+                <tableExists tableName="poll"/>
+            </not>
+        </preConditions>
+
+
+        <createTable tableName="coworkers">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="true"/>
+            </column>
+
+            <column name="name" type="varchar">
+                <constraints unique="false" nullable="false"/>
+            </column>
+
+            <column name="lastname" type="varchar">
+                <constraints unique="false" nullable="false"/>
+            </column>
+
+            <column name="surname" type="varchar">
+                <constraints unique="false" nullable="false"/>
+            </column>
+
+            <column name="note" type="text">
+                <constraints unique="false" nullable="false"/>
+            </column>
+
+            <column name="department_id" type="bigint">
+                <constraints unique="false" nullable="false"/>
+            </column>
+
+            <column name="profession_id" type="bigint">
+                <constraints unique="false" nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="departments">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="true"/>
+            </column>
+
+            <column name="name" type="varchar">
+                <constraints unique="false" nullable="false"/>
+            </column>
+
+            <column name="note" type="text">
+                <constraints unique="false" nullable="false"/>
+            </column>
+
+            <column name="department_id" type="bigint">
+                <constraints unique="false" nullable="false"/>
+            </column>
+
+            <column name="parent_id" type="bigint">
+                <constraints unique="false" nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="professions">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="true"/>
+            </column>
+
+            <column name="name" type="varchar">
+                <constraints unique="false" nullable="false"/>
+            </column>
+
+            <column name="note" type="text">
+                <constraints unique="false" nullable="false"/>
+            </column>
+        </createTable>
+
+
+
+        <insert tableName="coworkers">
+            <column name="name" value="sport"/>
+            <column name="lastname" value="sportov"/>
+            <column name="surname" value="sportevich"/>
+            <column name="note" value="Information"/>
+            <column name="department_id" valueComputed="1"/>
+            <column name="profession_id" valueComputed="1"/>
+        </insert>
+
+        <insert tableName="departments">
+            <column name="name" value="sport"/>
+            <column name="note" value="Information"/>
+            <column name="department_id" valueComputed="1"/>
+            <column name="parent_id" valueComputed="1"/>
+        </insert>
+
+        <insert tableName="professions">
+            <column name="name" value="sport"/>
+            <column name="note" value="Information"/>
+        </insert>
+    </changeSet>
+
+
+</databaseChangeLog>
