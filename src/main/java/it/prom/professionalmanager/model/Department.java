@@ -34,6 +34,6 @@ public class Department {
     /**
      * id родительского отдела
      */
-    @Column(name = "parent_id")
-    private Long parentId;
+    @Column(name = "parent_name")
+    private String parentId;
 }

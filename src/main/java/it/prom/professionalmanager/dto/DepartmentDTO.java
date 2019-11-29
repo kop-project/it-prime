@@ -15,11 +15,6 @@ import javax.persistence.*;
 public class DepartmentDTO {
 
     /**
-     * id профессии
-     */
-    private Long id;
-
-    /**
      * Наименование професии
      */
     private String name;
@@ -32,6 +27,6 @@ public class DepartmentDTO {
     /**
      * id родительского отдела
      */
-    private Long parentId;
+    private Long parentName;
 
 }

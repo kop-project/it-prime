@@ -53,13 +53,13 @@ public class Coworker {
     /**
      * id отдела
      */
-    @Column(name = "department_id")
-    private Long departmentId;
+    @Column(name = "department_name")
+    private String departmentId;
 
     /**
      * id профессии
      */
-    @Column(name = "profession_id")
-    private Long professionId;
+    @Column(name = "profession_name")
+    private String professionId;
 
 }

@@ -43,11 +43,11 @@ public class CoworkerDTO {
     /**
      * id отдела
      */
-    private Long departmentId;
+    private String departmentId;
 
     /**
      * id профессии
      */
-    private Long professionId;
+    private String professionId;
 
 }

@@ -22,8 +22,9 @@
             crossorigin="anonymous"></script>
 
     <!-- Los iconos tipo Solid de Fontawesome-->
-    <link rel="stylesheet"
-          href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.css">
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
     <!-- Nuestro css-->
@@ -44,19 +45,24 @@
                    aria-controls="list" aria-selected="false">Сотрудники</a>
             </li>
             <li class="nav-item">
-                <a onclick="getDepartments()" class="nav-link" id="departments-tab" data-toggle="tab" href="#departments" role="tab"
+                <a onclick="getDepartments()" class="nav-link" id="departments-tab" data-toggle="tab"
+                   href="#departments" role="tab"
                    aria-controls="form" aria-selected="true">Отделы</a>
             </li>
             <li class="nav-item">
-                <a onclick="getProfessions()" class="nav-link" id="professionals-tab" data-toggle="tab" href="#professionals" role="tab"
+                <a onclick="getProfessions()" class="nav-link" id="professionals-tab" data-toggle="tab"
+                   href="#professionals" role="tab"
                    aria-controls="form" aria-selected="true">Профессии</a>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="coworkers" role="tabpanel" aria-labelledby="coworkers-tab">
                 <div class="card">
-                    <div class="card-header">
-                        <h4>Сотрудники</h4>
+                    <div style="display: flex; justify-content: space-between" class="card-header">
+                        <h4  data-toggle="modal" data-target="#exampleModal" >Сотрудники</h4>
+                        <h4 style="float: right" >Добавить <i
+                                style="float: right; margin-left: 10px; margin-top: 3px; font-size: 25px;"
+                                data-toggle="modal" data-target="#exampleModal" class="fas fa-plus-square"></i></h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -77,14 +83,15 @@
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="departments" role="tabpanel" aria-labelledby="departments-tab">
                 <div class="card">
-                    <div class="card-header">
-                        <h4>Отделы</h4>
+                    <div style="display: flex; justify-content: space-between" class="card-header">
+                        <h4  data-toggle="modal" data-target="#exampleModal2" >Отделы</h4>
+                        <h4 style="float: right">Добавить <i style="float: right; margin-left: 10px; margin-top: 3px; font-size: 25px;"
+                                data-toggle="modal" data-target="#exampleModal2" class="fas fa-plus-square"></i></h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -107,8 +114,11 @@
             </div>
             <div class="tab-pane fade" id="professionals" role="tabpanel" aria-labelledby="professionals-tab">
                 <div class="card">
-                    <div class="card-header">
-                        <h4>Профессии</h4>
+                    <div style="display: flex; justify-content: space-between" class="card-header">
+                        <h4  data-toggle="modal" data-target="#exampleModal3" >Профессии</h4>
+                        <h4 style="float: right">Добавить <i
+                                style="float: right; margin-left: 10px; margin-top: 3px; font-size: 25px;"
+                                data-toggle="modal" data-target="#exampleModal3" class="fas fa-plus-square"></i></h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -135,7 +145,8 @@
 
 <script src="/static/script/index.js"></script>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -155,43 +166,100 @@
                         <input type="text" name="lastname" class="form-control" id="lastname">
                     </div>
                     <div class="form-group">
-                        <label for="surname"  class="col-form-label">Отчество:</label>
+                        <label for="surname" class="col-form-label">Отчество:</label>
                         <input type="text" class="form-control" name="surname" id="surname">
                     </div>
                     <div class="form-group">
-                        <label for="note"  class="col-form-label">Примечание:</label>
+                        <label for="note" class="col-form-label">Примечание:</label>
                         <input type="text" class="form-control" name="note" id="note">
                     </div>
-                    <nav>
-                        <ul class="topmenu">
-                            <li><a href="">Отделы</a>
-                                <ul class="submenu">
-                                    <li><a class="listElement" href="">Category</a></li>
-                                    <li><a class="listElement" href="">Author</a></li>
-                                    <li><a class="listElement" href="">Archive</a></li>
-                                    <li><a class="listElement" href="">Tags</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="">Профессии</a>
-                                <ul class="submenu">
-                                    <li><a class="listElement" href="">Category</a></li>
-                                    <li><a class="listElement" href="">Author</a></li>
-                                    <li><a class="listElement" href="">Archive</a></li>
-                                    <li><a class="listElement" href="">Tags</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
+
+                    <label for="departments" class="col-form-label">Отдел:</label>
+                    <select class="custom-select" name="departments" id="inputGroupSelect01" align="center">
+                    </select>
+
+                    <label for="professions" class="col-form-label">Профессия:</label>
+                    <select class="custom-select" name="professions" id="inputGroupSelect02" align="center">
+
+                    </select>
                 </form>
             </div>
 
             <div class="modal-footer">
-                <button type="button" onclick="updateItem()" id="btn" class="btn btn-primary">Обновить</button>
+                <button type="button" onclick="updateItem()" id="btn" class="btn btn-primary">Сохранить</button>
             </div>
         </div>
     </div>
 </div>
 
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLab">Окно редактирования</h5>
+                <button type="button" id="closedataDep" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="name" class="col-form-label">Имя:</label>
+                        <input type="text" name="name" class="form-control" id="nameDep">
+                    </div>
+                    <div class="form-group">
+                        <label for="note" class="col-form-label">Примечание:</label>
+                        <input type="text" class="form-control" name="note" id="noteDep">
+                    </div>
+
+                    <label for="departments" class="col-form-label">Отдел:</label>
+                    <select class="custom-select" name="departments" id="inputGroupSelect0001" align="center">
+                    </select>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" onclick="updateItem()" id="btn2" class="btn btn-primary">Сохранить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabe">Окно редактирования</h5>
+                <button type="button" id="closedataProf" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="name" class="col-form-label">Имя:</label>
+                        <input type="text" name="name" class="form-control" id="nameProf">
+                    </div>
+                    <div class="form-group">
+                        <label for="note" class="col-form-label">Примечание:</label>
+                        <input type="text" class="form-control" name="note" id="noteProf">
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" onclick="updateItem()" id="btn3" class="btn btn-primary">Сохранить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--------------------------------------------------------------------------------->
+<!--                         -->
 </body>
 
 <script src="/static/script/index.js"></script>

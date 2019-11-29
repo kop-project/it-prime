@@ -15,11 +15,6 @@ import javax.persistence.*;
 public class ProfessionDTO {
 
     /**
-     * id профессии
-     */
-    private Long id;
-
-    /**
      * Наименование професии
      */
     private String name;

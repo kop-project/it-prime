@@ -11,6 +11,8 @@ const HTTP_OK = 200;
 let mainCoworkersTable = document.getElementById('coworkersTable');
 let mainDepartmentsTable = document.getElementById('departmentsTable');
 let mainProfessionsTable = document.getElementById('professionsTable');
+let departmentList = document.getElementById('inputGroupSelect01');
+let professionList = document.getElementById('inputGroupSelect02');
 
 var allItem = [];
 
@@ -42,11 +44,14 @@ function drawCoworkersRow(response) {
         let editPanel = document.createElement('td');
         editPanel.innerHTML = '<a href="#" onclick="goToUpdateModel(this.id)" id="element-' + item.id + '"data-toggle="modal" data-target="#exampleModal"><i class="fas fa-edit"></i></a>' + '|' + '<a href="#" id="deleteItem-' + item.id + '"  onclick="deleteItem(this.id, this.name)" name="coworkers"><i class="fas fa-user-times" ></i> </a>';
 
+
         itemId.innerText = index + 1;
         name.innerText = item.name;
         lastname.innerText = item.lastname;
         surname.innerText = item.surname;
         note.innerText = item.note;
+        department.innerText = item.departmentId;
+        professional.innerText = item.professionId;
 
         tr.appendChild(itemId);
         tr.appendChild(name);
@@ -78,7 +83,47 @@ function goToUpdateModel(id) {
     lastname.value = item.lastname;
     surname.value = item.surname;
     note.value = item.note;
-    //console.log(name + lastname + surname);
+
+    let departmentList = document.getElementById('inputGroupSelect01');
+    let professionList = document.getElementById('inputGroupSelect02');
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', '/api/v1/departments');
+    xhr.send();
+
+    xhr.onload = () => {
+        if (xhr.status === HTTP_OK) {
+            let resDepartment = JSON.parse(xhr.responseText);
+            for (let i = 0; i < resDepartment.length; i++) {
+                let option = document.createElement('option');
+                option.innerHTML = resDepartment[i].name;
+                if (i===0) {
+                    option.selected = true;
+                }
+                departmentList.appendChild(option);
+            }
+        }
+    };
+
+
+    let xhr1 = new XMLHttpRequest();
+    xhr1.open('GET', '/api/v1/professions');
+    xhr1.send();
+
+    xhr1.onload = () => {
+        if (xhr1.status === HTTP_OK) {
+            let resProfession = JSON.parse(xhr1.responseText);
+            console.log(resProfession);
+            for (let i = 0; i < resProfession.length; i++) {
+                let option = document.createElement('option');
+                option.innerHTML = resProfession[i].name;
+                if (i===0) {
+                    option.selected = true;
+                }
+                professionList.appendChild(option);
+            }
+        }
+    };
 }
 
 function updateItem() {
@@ -98,6 +143,8 @@ function updateItem() {
     updatedUser.lastname = document.getElementById('lastname').value;
     updatedUser.surname = document.getElementById('surname').value;
     updatedUser.note = document.getElementById('note').value;
+    updatedUser.departmentId = document.getElementById('inputGroupSelect01').value;
+    updatedUser.professionId = document.getElementById('inputGroupSelect02').value;
 
     xhr.send(JSON.stringify({
         id: localStorage.getItem('id'),
@@ -105,13 +152,12 @@ function updateItem() {
         lastname: updatedUser.lastname.toString(),
         surname: updatedUser.lastname.toString(),
         note: updatedUser.note.toString(),
-        departmentId: 1,
-        professionId: 1
+        departmentId: updatedUser.departmentId.toString(),
+        professionId: updatedUser.professionId.toString()
     }));
 
     let neededObj = document.getElementById('element-' + localStorage.getItem('id')).parentElement.parentElement;
     let values = Object.values(updatedUser);
-    var BreakException = {};
     Array.from(neededObj.children).forEach((value, index) => {
         if (index === 0) return;
         if (index >= 5) return;
@@ -123,9 +169,7 @@ function updateItem() {
 }
 
 function deleteItem(id, name) {
-    alert(id);
     let elementId = id.split('-')[1];
-alert(elementId);
     let xhr = new XMLHttpRequest();
     xhr.open('DELETE', '/api/v1/' + name + '?id=' + elementId);
     xhr.setRequestHeader('Content-Type', 'application/json');
@@ -146,8 +190,8 @@ function getDepartments() {
 
     xhr.onload = () => {
         if (xhr.status === HTTP_OK) {
-            console.log(xhr.responseText);
-            drawDepartmentsRow(xhr.responseText)
+            drawDepartmentsRow(xhr.responseText);
+            return xhr.responseText;
         }
     };
 }
@@ -160,7 +204,6 @@ function getProfessions() {
 
     xhr.onload = () => {
         if (xhr.status === HTTP_OK) {
-            console.log(xhr.responseText);
             drawProfessionalsRow(xhr.responseText)
         }
     };
@@ -168,8 +211,8 @@ function getProfessions() {
 
 
 function drawDepartmentsRow(response) {
+    mainDepartmentsTable.innerText = '';
     let items = JSON.parse(response);
-    console.log(items);
     allItem = JSON.parse(response);
     items.forEach((item, index) => {
         let tr = document.createElement('tr');
@@ -180,7 +223,7 @@ function drawDepartmentsRow(response) {
 
         let department = document.createElement('td');
         let editPanel = document.createElement('td');
-        editPanel.innerHTML = '<a href="#" onclick="goToUpdateModel(this.id)" id="element-' + item.name + '"data-toggle="modal" data-target="#exampleModal"><i class="fas fa-edit"></i></a>' + '|' + '<a href="#" id="deleteItem-' + item.name + '"  onclick="deleteItem(this.id, this.name)  " name="departments"><i class="fas fa-user-times" ></i> </a>';
+        editPanel.innerHTML = '<a href="#" onclick="goToUpdateModel(this.id)" id="element-' + item.name + '"data-toggle="modal" data-target="#exampleModal2"><i class="fas fa-edit"></i></a>' + '|' + '<a href="#" id="deleteItem-' + item.name + '"  onclick="deleteItem(this.id, this.name)  " name="departments"><i class="fas fa-user-times" ></i> </a>';
 
         itemId.innerText = index + 1;
         name.innerText = item.name;
@@ -197,6 +240,7 @@ function drawDepartmentsRow(response) {
 
 
 function drawProfessionalsRow(response) {
+    mainProfessionsTable.innerText = '';
     let items = JSON.parse(response);
     allItem = JSON.parse(response);
     items.forEach((item, index) => {
@@ -207,7 +251,7 @@ function drawProfessionalsRow(response) {
         let note = document.createElement('td');
 
         let editPanel = document.createElement('td');
-        editPanel.innerHTML = '<a href="#" onclick="goToUpdateModel(this.id)" id="element-' + item.name + '"data-toggle="modal" data-target="#exampleModal"><i class="fas fa-edit"></i></a>' + '|' + '<a href="#" id="deleteItem-' + item.name + '"  onclick="deleteItem(this.id, this.name)" name="professions"><i class="fas fa-user-times" ></i> </a>';
+        editPanel.innerHTML = '<a href="#" onclick="goToUpdateModel(this.id)" id="element-' + item.name + '"data-toggle="modal" data-target="#exampleModal3"><i class="fas fa-edit"></i></a>' + '|' + '<a href="#" id="deleteItem-' + item.name + '"  onclick="deleteItem(this.id, this.name)" name="professions"><i class="fas fa-user-times" ></i> </a>';
 
         itemId.innerText = index + 1;
         name.innerText = item.name;
@@ -220,3 +264,9 @@ function drawProfessionalsRow(response) {
         mainProfessionsTable.appendChild(tr);
     });
 }
+
+
+function block() {
+    event.preventDefault();
+};
+
