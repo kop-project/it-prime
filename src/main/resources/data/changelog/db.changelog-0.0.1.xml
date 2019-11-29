@@ -51,12 +51,8 @@
         </createTable>
 
         <createTable tableName="departments">
-            <column name="id" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true" nullable="true"/>
-            </column>
-
             <column name="name" type="varchar">
-                <constraints unique="false" nullable="false"/>
+                <constraints primaryKey="true" unique="false" nullable="false"/>
             </column>
 
             <column name="note" type="text">
@@ -73,20 +69,15 @@
         </createTable>
 
         <createTable tableName="professions">
-            <column name="id" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true" nullable="true"/>
-            </column>
 
             <column name="name" type="varchar">
-                <constraints unique="false" nullable="false"/>
+                <constraints primaryKey="true" unique="false" nullable="false"/>
             </column>
 
             <column name="note" type="text">
                 <constraints unique="false" nullable="false"/>
             </column>
         </createTable>
-
-
 
         <insert tableName="coworkers">
             <column name="name" value="sport"/>
@@ -95,6 +86,16 @@
             <column name="note" value="Information"/>
             <column name="department_id" valueComputed="1"/>
             <column name="profession_id" valueComputed="1"/>
+        </insert>
+
+
+        <insert tableName="coworkers">
+            <column name="name" value="sport1"/>
+            <column name="lastname" value="sportov1"/>
+            <column name="surname" value="sportevich1"/>
+            <column name="note" value="Information"/>
+            <column name="department_id" valueComputed="2"/>
+            <column name="profession_id" valueComputed="2"/>
         </insert>
 
         <insert tableName="departments">

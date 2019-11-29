@@ -30,7 +30,7 @@ public class CoworkerRestApi {
         return ResponseEntity.ok(coworkersService.addCoworker(Converter.convertCoworkerDtoToEntity(coworkerDTO)));
     }
 
-    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping
     private ResponseEntity<Coworker> updateCoworker(@RequestBody CoworkerDTO coworkerDTO) {
         return ResponseEntity.ok(coworkersService.updateCoworker(Converter.convertCoworkerDtoToEntity(coworkerDTO)));
     }
@@ -41,7 +41,8 @@ public class CoworkerRestApi {
     }
 
     @DeleteMapping
-    private ResponseEntity deleteCoworker() {
-        return null;
+    private ResponseEntity deleteCoworker(@RequestParam(name = "id") Long id) {
+        coworkersService.deleteCoworker(id);
+       return ResponseEntity.ok().build();
     }
 }

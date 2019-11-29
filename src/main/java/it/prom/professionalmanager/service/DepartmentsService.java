@@ -1,39 +1,39 @@
 package it.prom.professionalmanager.service;
 
-import it.prom.professionalmanager.model.Coworker;
+import it.prom.professionalmanager.model.Department;
 
 import java.util.List;
 
 /**
  * Сервис для работы с сотруднкиами
  */
-public interface CoworkersService {
+public interface DepartmentsService {
 
     /**
      * Добавление сотрудника
      *
      * @return новые данные о сотруднике
      */
-    public Coworker addCoworker(Coworker coworker);
+    public Department addDepartment(Department Department);
 
     /**
      * Обновление данных о сотруднике
      *
      * @return обновленные данные о сотруднике
      */
-    public Coworker updateCoworker(Coworker coworker);
+    public Department updateDepartment(Department Department);
 
     /**
      * @param id элемента
-     *           Удаление данных о сотруднике
+     * Удаление данных о сотруднике
      */
-    public void deleteCoworker(Long id);
+    public void deleteDepartment(String id);
 
     /**
      * Вернуть сотрудников
      *
      * @return список сотрудников
      */
-    public List<Coworker> getCoworkers();
+    public List<Department> getDepartments();
 
 }

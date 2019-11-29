@@ -40,8 +40,9 @@ public class CoworkersServiceImpl implements CoworkersService {
     }
 
     @Override
-    public void deleteCoworker() {
-
+    public void deleteCoworker(Long id) {
+        Coworker coworker = coworkerRepo.findById(id).orElseThrow(() -> new NullPointerException("asdas"));
+        coworkerRepo.delete(coworker);
     }
 
     @Override

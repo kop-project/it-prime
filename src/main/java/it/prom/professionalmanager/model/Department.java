@@ -2,6 +2,7 @@ package it.prom.professionalmanager.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import javax.persistence.*;
 /**
  * Сущность отдела
  */
+@Data
 @Entity
 @Table(name = "DEPARTMENTS")
 @Builder
@@ -17,16 +19,9 @@ import javax.persistence.*;
 public class Department {
 
     /**
-     * id профессии
-     */
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    /**
      * Наименование професии
      */
+    @Id
     @Column(name = "name")
     private String name;
 
@@ -41,5 +36,4 @@ public class Department {
      */
     @Column(name = "parent_id")
     private Long parentId;
-
 }

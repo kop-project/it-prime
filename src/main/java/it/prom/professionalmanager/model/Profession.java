@@ -17,16 +17,9 @@ import javax.persistence.*;
 public class Profession {
 
     /**
-     * id профессии
-     */
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    /**
      * Наименование професии
      */
+    @Id
     @Column(name = "name")
     private String name;
 
@@ -35,6 +28,4 @@ public class Profession {
      */
     @Column(name = "note")
     private String note;
-
-
 }
